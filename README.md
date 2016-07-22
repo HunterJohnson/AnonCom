@@ -1,0 +1,2 @@
+# Encryptify
+encrypted messaging app
