@@ -1,2 +1,2 @@
-# Encryptify
+# AnonCom
 encrypted messaging app
