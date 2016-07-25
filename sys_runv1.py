@@ -1,5 +1,7 @@
 #Client and Server Together
 
+import client/client.py as cl
+import server/server.py as serv
 """
 The client and server should be run in separate terminal windows, so they can communicate with each other. The server output is:
 
