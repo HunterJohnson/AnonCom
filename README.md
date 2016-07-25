@@ -1,2 +1,2 @@
 # AnonCom
-encrypted messaging app
+encrypted messaging
