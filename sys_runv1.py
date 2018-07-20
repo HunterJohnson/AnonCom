@@ -56,16 +56,16 @@ protocols = get_constants('IPPROTO_')
 # Create a TCP/IP socket
 sock = socket.create_connection(('localhost', 10000))
 
-print >>sys.stderr, 'Family  :', families[sock.family]
-print >>sys.stderr, 'Type    :', types[sock.type]
-print >>sys.stderr, 'Protocol:', protocols[sock.proto]
-print >>sys.stderr
+print(>>sys.stderr, 'Family  :', families[sock.family])
+print(>>sys.stderr, 'Type    :', types[sock.type])
+print(>>sys.stderr, 'Protocol:', protocols[sock.proto])
+print(>>sys.stderr)
 
 try:
     
     # Send data
     message = 'This is the message.  It will be repeated.'
-    print >>sys.stderr, 'sending "%s"' % message
+    print( >>sys.stderr, 'sending "%s"' % message)
     sock.sendall(message)
 
     amount_received = 0
@@ -77,7 +77,7 @@ try:
         print >>sys.stderr, 'received "%s"' % data
 
 finally:
-    print >>sys.stderr, 'closing socket'
+    print(>>sys.stderr, 'closing socket')
     sock.close()
 #create_connection() uses getaddrinfo() to find candidate connection parameters, and returns a socket opened with the first configuration that creates a successful connection. The family, type, and proto attributes can be examined to determine the type of socket being returned.
 
@@ -107,18 +107,18 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Bind the socket to the address given on the command line
 server_name = sys.argv[1]
 server_address = (server_name, 10000)
-print >>sys.stderr, 'starting up on %s port %s' % server_address
+print(>>sys.stderr, 'starting up on %s port %s' % server_address)
 sock.bind(server_address)
 sock.listen(1)
 
 while True:
-    print >>sys.stderr, 'waiting for a connection'
+    print(>>sys.stderr, 'waiting for a connection')
     connection, client_address = sock.accept()
     try:
-        print >>sys.stderr, 'client connected:', client_address
+        print(>>sys.stderr, 'client connected:', client_address)
         while True:
             data = connection.recv(16)
-            print >>sys.stderr, 'received "%s"' % data
+            print(>>sys.stderr, 'received "%s"' % data)
             if data:
                 connection.sendall(data)
             else:
@@ -135,13 +135,13 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect the socket to the port on the server given by the caller
 server_address = (sys.argv[1], 10000)
-print >>sys.stderr, 'connecting to %s port %s' % server_address
+print(>>sys.stderr, 'connecting to %s port %s' % server_address)
 sock.connect(server_address)
 
 try:
     
     message = 'This is the message.  It will be repeated.'
-    print >>sys.stderr, 'sending "%s"' % message
+    print(>>sys.stderr, 'sending "%s"' % message)
     sock.sendall(message)
 
     amount_received = 0
@@ -149,7 +149,7 @@ try:
     while amount_received < amount_expected:
         data = sock.recv(16)
         amount_received += len(data)
-        print >>sys.stderr, 'received "%s"' % data
+        print(>>sys.stderr, 'received "%s"' % data)
 
 finally:
     sock.close()
@@ -204,17 +204,17 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Bind the socket to the address given on the command line
 server_address = ('', 10000)
 sock.bind(server_address)
-print >>sys.stderr, 'starting up on %s port %s' % sock.getsockname()
+print(>>sys.stderr, 'starting up on %s port %s' % sock.getsockname())
 sock.listen(1)
 
-while True:
-    print >>sys.stderr, 'waiting for a connection'
+while(True):
+    print(>>sys.stderr, 'waiting for a connection')
     connection, client_address = sock.accept()
     try:
-        print >>sys.stderr, 'client connected:', client_address
+        print( >>sys.stderr, 'client connected:', client_address)
         while True:
             data = connection.recv(16)
-            print >>sys.stderr, 'received "%s"' % data
+            print(>>sys.stderr, 'received "%s"' % data)
             if data:
                 connection.sendall(data)
             else:
